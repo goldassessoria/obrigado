@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Calculator } from "lucide-react";
 import { generateReinforcementText } from "@/ai/flows/generate-reinforcement-text";
 import { Skeleton } from '@/components/ui/skeleton';
 
@@ -64,7 +64,10 @@ export default function Home() {
           </CardContent>
           <CardFooter className="flex justify-center p-6 pt-2 sm:p-8 sm:pt-4">
             <Button asChild size="lg" className="w-full font-semibold text-black hover:text-white">
-              <a href="https://calculadora.goldpizzarias.com.br" target="_blank" rel="noopener noreferrer">Acessar Calculadora</a>
+              <a href="https://calculadora.goldpizzarias.com.br" target="_blank" rel="noopener noreferrer">
+                <Calculator />
+                Acessar Calculadora
+              </a>
             </Button>
           </CardFooter>
         </Card>
