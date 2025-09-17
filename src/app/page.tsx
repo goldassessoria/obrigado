@@ -63,7 +63,7 @@ export default function Home() {
             </Suspense>
           </CardContent>
           <CardFooter className="flex justify-center p-6 pt-2 sm:p-8 sm:pt-4">
-            <Button asChild size="lg" className="w-full font-semibold">
+            <Button asChild size="lg" className="w-full font-semibold text-black hover:text-white">
               <a href="https://calculadora.goldpizzarias.com.br" target="_blank" rel="noopener noreferrer">Acessar Calculadora</a>
             </Button>
           </CardFooter>
