@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import Image from 'next/image';
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -41,28 +42,33 @@ function AIGeneratedTextFallback() {
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen w-full items-center justify-center bg-background p-4">
-      <Card className="w-full max-w-md animate-in fade-in-50 zoom-in-95 duration-500 shadow-xl rounded-2xl">
-        <CardHeader className="items-center text-center p-6 pb-2 sm:p-8 sm:pb-4">
-          <div className="w-24 h-24 rounded-full bg-accent/20 flex items-center justify-center">
-            <CheckCircle2 className="h-16 w-16 text-accent" />
-          </div>
-          <CardTitle className="mt-6 text-4xl font-headline font-bold text-foreground">Obrigado!</CardTitle>
-          <CardDescription className="mt-2 text-base text-muted-foreground">
-            Sua mensagem foi recebida com sucesso.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="text-center px-6 py-4 sm:px-8 sm:py-6 min-h-[64px] flex items-center justify-center">
-          <Suspense fallback={<AIGeneratedTextFallback />}>
-            <AIGeneratedText />
-          </Suspense>
-        </CardContent>
-        <CardFooter className="flex justify-center p-6 pt-2 sm:p-8 sm:pt-4">
-          <Button asChild size="lg" className="w-full font-semibold">
-            <a href="https://calculadora.goldpizzarias.com.br" target="_blank" rel="noopener noreferrer">Acessar Calculadora</a>
-          </Button>
-        </CardFooter>
-      </Card>
-    </main>
+    <div className="flex flex-col min-h-screen w-full bg-background">
+      <header className="flex justify-center items-center p-4">
+        <Image src="https://i.imgur.com/UBxesF1.png" alt="Logo Gold Pizzarias" width={200} height={50} />
+      </header>
+      <main className="flex flex-grow w-full items-start justify-center p-4 pt-8">
+        <Card className="w-full max-w-md animate-in fade-in-50 zoom-in-95 duration-500 shadow-xl rounded-2xl">
+          <CardHeader className="items-center text-center p-6 pb-2 sm:p-8 sm:pb-4">
+            <div className="w-24 h-24 rounded-full bg-accent/20 flex items-center justify-center">
+              <CheckCircle2 className="h-16 w-16 text-accent" />
+            </div>
+            <CardTitle className="mt-6 text-4xl font-headline font-bold text-foreground">Obrigado!</CardTitle>
+            <CardDescription className="mt-2 text-base text-muted-foreground">
+              Sua mensagem foi recebida com sucesso.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="text-center px-6 py-4 sm:px-8 sm:py-6 min-h-[64px] flex items-center justify-center">
+            <Suspense fallback={<AIGeneratedTextFallback />}>
+              <AIGeneratedText />
+            </Suspense>
+          </CardContent>
+          <CardFooter className="flex justify-center p-6 pt-2 sm:p-8 sm:pt-4">
+            <Button asChild size="lg" className="w-full font-semibold">
+              <a href="https://calculadora.goldpizzarias.com.br" target="_blank" rel="noopener noreferrer">Acessar Calculadora</a>
+            </Button>
+          </CardFooter>
+        </Card>
+      </main>
+    </div>
   );
 }
