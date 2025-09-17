@@ -20,7 +20,7 @@ async function AIGeneratedText() {
     reinforcementText = result.reinforcementText;
   } catch (error) {
     console.error("Failed to generate reinforcement text:", error);
-    reinforcementText = "Que tal explorar nosso cardápio completo enquanto aguarda nosso contato?";
+    reinforcementText = "Você já conhece nossa Calculadora de precificação? Com ela você descobre o preço de venda ideal para não ter prejuízo no iFood.";
   }
 
   return (
@@ -59,7 +59,7 @@ export default function Home() {
         </CardContent>
         <CardFooter className="flex justify-center p-6 pt-2 sm:p-8 sm:pt-4">
           <Button asChild size="lg" className="w-full font-semibold">
-            <a href="https://goldpizzarias.com.br" target="_blank" rel="noopener noreferrer">Voltar para o site</a>
+            <a href="https://goldpizzarias.com.br" target="_blank" rel="noopener noreferrer">Acessar Calculadora</a>
           </Button>
         </CardFooter>
       </Card>
