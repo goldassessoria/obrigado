@@ -25,7 +25,7 @@ async function AIGeneratedText() {
   }
 
   return (
-    <p className="text-sm text-muted-foreground">
+    <p className="text-base font-bold text-primary">
       {reinforcementText}
     </p>
   );
