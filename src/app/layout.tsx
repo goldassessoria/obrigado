@@ -48,6 +48,16 @@ export default function RootLayout({
             gtag('config', 'G-70ZFR61DQD');
           `}
         </Script>
+        {/* Event snippet for Leads [Gold Assessoria] conversion page */}
+        <Script id="google-ads-conversion">
+          {`
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17580109743/EOIiCKDIq50bEK_f7L5B',
+                'value': 1.0,
+                'currency': 'BRL'
+            });
+          `}
+        </Script>
       </head>
       <body className="font-body antialiased">
         {children}
