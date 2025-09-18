@@ -38,6 +38,16 @@ export default function RootLayout({
             src="https://www.facebook.com/tr?id=1390088832135868&ev=PageView&noscript=1"
           />
         </noscript>
+        {/* Google tag (gtag.js) */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-70ZFR61DQD"></Script>
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-70ZFR61DQD');
+          `}
+        </Script>
       </head>
       <body className="font-body antialiased">
         {children}
