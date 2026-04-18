@@ -166,7 +166,7 @@ export default function Home() {
               <div className="bg-primary/20 p-2 sm:p-3 rounded-lg">
                 <BarChart2 className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
               </div>
-              <p className="text-xs sm:text-sm font-bold text-white leading-snug">Tenha acesso a quantidade de pedidos mensais</p>
+              <p className="text-xs sm:text-sm font-bold text-white leading-snug">Tenha acesso a sua quantidade de pedidos mensais</p>
             </div>
             <div className="flex items-center gap-3 sm:gap-4 bg-white/5 p-4 rounded-xl border border-white/5 shadow-sm">
               <div className="bg-primary/20 p-2 sm:p-3 rounded-lg">
