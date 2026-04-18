@@ -96,11 +96,6 @@ export default function Home() {
               <ArrowRight className="h-4 w-4 text-primary shrink-0" />
               Clique no botão e envie a mensagem automática.
             </p>
-
-            {/* Frase da Calculadora */}
-            <p className="text-center text-primary font-bold mt-4 sm:mt-6 px-2 text-sm sm:text-base">
-              Você já conhece nossa Calculadora de precificação? Descubra o preço ideal para não ter prejuízo no iFood.
-            </p>
           </CardContent>
         </Card>
 
