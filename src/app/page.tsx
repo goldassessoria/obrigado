@@ -186,7 +186,7 @@ export default function Home() {
             </a>
           </Button>
           <p className="text-[10px] text-muted-foreground mt-6 font-medium uppercase tracking-[0.2em]">
-            Gold Pizzarias © 2024
+            Gold Pizzarias © 2026
           </p>
         </div>
 
