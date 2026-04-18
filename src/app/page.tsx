@@ -125,7 +125,7 @@ export default function Home() {
             </Suspense>
           </Card>
 
-          {/* Prova Social - Atualizada sem números */}
+          {/* Prova Social - Atualizada */}
           <Card className="p-8 rounded-[2rem] border-none shadow-xl bg-primary text-black">
             <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
               <TrendingUp className="h-6 w-6" />
@@ -133,8 +133,8 @@ export default function Home() {
             </h3>
             <div className="space-y-5">
               <div className="bg-black/10 p-5 rounded-2xl border border-black/5">
-                <p className="text-2xl font-black leading-tight">Agenda lotada</p>
-                <p className="text-xs uppercase tracking-widest font-bold opacity-80 mt-1">com pedidos todos os dias</p>
+                <p className="text-2xl font-black leading-tight">Vendas Sem Taxas</p>
+                <p className="text-xs uppercase tracking-widest font-bold opacity-80 mt-1">CRESCIMENTO EM 70% NO CARDÁPIO PRÓPRIO</p>
               </div>
               <div className="bg-black/10 p-5 rounded-2xl border border-black/5">
                 <p className="text-2xl font-black leading-tight">Vendas diretas</p>
