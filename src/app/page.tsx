@@ -14,7 +14,7 @@ import {
   TrendingUp, 
   AlertTriangle, 
   Clock, 
-  Instagram,
+  BarChart2,
   ArrowRight,
   Calculator
 } from "lucide-react";
@@ -169,9 +169,9 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex items-center gap-3 sm:gap-4 bg-white/5 p-4 rounded-xl border border-white/5 shadow-sm">
               <div className="bg-primary/20 p-2 sm:p-3 rounded-lg">
-                <Instagram className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                <BarChart2 className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
               </div>
-              <p className="text-xs sm:text-sm font-bold text-white leading-snug">Tenha acesso ao seu Instagram de pedidos</p>
+              <p className="text-xs sm:text-sm font-bold text-white leading-snug">Tenha acesso a quantidade de pedidos mensais</p>
             </div>
             <div className="flex items-center gap-3 sm:gap-4 bg-white/5 p-4 rounded-xl border border-white/5 shadow-sm">
               <div className="bg-primary/20 p-2 sm:p-3 rounded-lg">
