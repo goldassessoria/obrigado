@@ -5,7 +5,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -16,14 +15,13 @@ import {
   AlertTriangle, 
   Clock, 
   Instagram,
-  ArrowRight
+  ArrowRight,
+  Calculator
 } from "lucide-react";
 import { generateReinforcementText } from "@/ai/flows/generate-reinforcement-text";
 import { Skeleton } from '@/components/ui/skeleton';
 
-const WHATSAPP_NUMBER = "5511999999999"; 
-const WHATSAPP_MESSAGE = "Quero receber minha análise da pizzaria e entender como aumentar meus pedidos no delivery.";
-const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+const WHATSAPP_LINK = "https://w.app/goldassessoria";
 
 async function AIGeneratedText() {
   let reinforcementText = "";
@@ -37,7 +35,7 @@ async function AIGeneratedText() {
 
   return (
     <div className="bg-primary/10 p-4 rounded-xl border border-primary/20 mt-4">
-      <p className="text-sm font-bold text-primary italic">
+      <p className="text-sm font-bold text-primary italic text-center">
         " {reinforcementText} "
       </p>
     </div>
@@ -69,7 +67,7 @@ export default function Home() {
 
       <main className="flex flex-col items-center px-4 max-w-4xl mx-auto space-y-10">
         
-        {/* Card Principal (Acima da dobra) */}
+        {/* Card Principal */}
         <Card className="w-full shadow-[0_0_40px_rgba(255,215,0,0.1)] border-primary/20 rounded-[2.5rem] overflow-hidden bg-card">
           <CardHeader className="text-center p-10 pb-4 space-y-4">
             <div className="flex justify-center">
@@ -86,7 +84,7 @@ export default function Home() {
           </CardHeader>
           
           <CardContent className="p-10 pt-0 space-y-6">
-            <Button asChild size="lg" className="w-full h-20 text-xl font-bold rounded-2xl bg-[#25D366] hover:bg-[#1eb956] text-white shadow-lg transition-all hover:scale-[1.02] active:scale-95 border-none">
+            <Button asChild size="lg" className="w-full h-20 text-xl font-bold rounded-2xl bg-[#25D366] hover:bg-[#1eb956] text-black shadow-lg transition-all hover:scale-[1.02] active:scale-95 border-none">
               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
                 <MessageCircle className="mr-3 h-8 w-8" />
                 Confirmar minha análise no WhatsApp
@@ -95,6 +93,11 @@ export default function Home() {
             <p className="text-center text-sm font-medium text-muted-foreground flex items-center justify-center gap-2">
               <ArrowRight className="h-4 w-4 text-primary" />
               Clique no botão acima e envie a mensagem automática para garantir sua vaga.
+            </p>
+
+            {/* Frase da Calculadora em Amarelo Dourado e Negrito */}
+            <p className="text-center text-primary font-bold mt-6 px-4">
+              Você já conhece nossa Calculadora de precificação? Com ela você descobre o preço de venda ideal para não ter prejuízo no iFood.
             </p>
           </CardContent>
         </Card>
@@ -144,7 +147,7 @@ export default function Home() {
           </Card>
         </section>
 
-        {/* Pré-frame (Importante) */}
+        {/* Pré-frame */}
         <div className="w-full bg-white/5 border-l-4 border-primary p-8 rounded-r-3xl">
           <div className="flex items-center gap-3 mb-3">
             <AlertTriangle className="h-7 w-7 text-primary" />
@@ -176,8 +179,9 @@ export default function Home() {
 
         {/* CTA Final */}
         <div className="w-full pt-10 text-center">
-          <Button asChild size="lg" className="w-full h-18 text-lg font-black rounded-2xl bg-primary hover:bg-primary/90 text-black shadow-[0_10px_30px_rgba(255,215,0,0.2)] transition-all">
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+          <Button asChild size="lg" className="w-full h-20 text-xl font-black rounded-2xl bg-primary hover:bg-primary/90 text-black shadow-[0_10px_30px_rgba(255,215,0,0.2)] transition-all">
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+              <Calculator className="mr-3 h-8 w-8" />
               Quero garantir minha análise no WhatsApp
             </a>
           </Button>
