@@ -54,7 +54,7 @@ function AIGeneratedTextFallback() {
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen w-full bg-background pb-12">
-      {/* Header com Logo - Dimensões Padrão: 300x75 */}
+      {/* Header com Logo */}
       <header className="flex justify-center items-center p-8 sm:p-12">
         <Image 
           src="https://i.imgur.com/UBxesF1.png" 
@@ -125,20 +125,20 @@ export default function Home() {
             </Suspense>
           </Card>
 
-          {/* Prova Social */}
+          {/* Prova Social - Atualizada sem números */}
           <Card className="p-8 rounded-[2rem] border-none shadow-xl bg-primary text-black">
             <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
               <TrendingUp className="h-6 w-6" />
               Pizzarias que aplicaram isso:
             </h3>
             <div className="space-y-5">
-              <div className="bg-black/10 p-4 rounded-2xl border border-black/5">
-                <p className="text-3xl font-black">+500 pedidos</p>
-                <p className="text-xs uppercase tracking-widest font-bold opacity-80">em poucos dias</p>
+              <div className="bg-black/10 p-5 rounded-2xl border border-black/5">
+                <p className="text-2xl font-black leading-tight">Agenda lotada</p>
+                <p className="text-xs uppercase tracking-widest font-bold opacity-80 mt-1">com pedidos todos os dias</p>
               </div>
-              <div className="bg-black/10 p-4 rounded-2xl border border-black/5">
-                <p className="text-3xl font-black">+R$30 mil</p>
-                <p className="text-xs uppercase tracking-widest font-bold opacity-80">faturados no delivery</p>
+              <div className="bg-black/10 p-5 rounded-2xl border border-black/5">
+                <p className="text-2xl font-black leading-tight">Vendas diretas</p>
+                <p className="text-xs uppercase tracking-widest font-bold opacity-80 mt-1">foco total em lucro real</p>
               </div>
               <p className="text-sm font-bold italic leading-tight">
                 "Crescimento previsível sem depender apenas de iFood"
