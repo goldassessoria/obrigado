@@ -18,8 +18,8 @@ git add .
 git commit -m "feat: atualiza página de obrigado e pixels"
 
 # 4. Enviar para o repositório principal
-git push origin main
-```
+
+```git push origin main
 
 ### 🔑 Autenticação (Username/Password)
 Se o Git pedir **Username** e **Password** ao fazer o push:
