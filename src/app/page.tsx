@@ -137,8 +137,8 @@ export default function Home() {
                 <p className="text-xs uppercase tracking-widest font-bold opacity-80 mt-1">CRESCIMENTO EM 70% NO CARDÁPIO PRÓPRIO</p>
               </div>
               <div className="bg-black/10 p-5 rounded-2xl border border-black/5">
-                <p className="text-2xl font-black leading-tight">Vendas diretas</p>
-                <p className="text-xs uppercase tracking-widest font-bold opacity-80 mt-1">foco total em lucro real</p>
+                <p className="text-2xl font-black leading-tight">Novos clientes</p>
+                <p className="text-xs uppercase tracking-widest font-bold opacity-80 mt-1">AUMENTO NA BASE DE CLIENTES, AUMENTANDO O LUCRO REAL</p>
               </div>
               <p className="text-sm font-bold italic leading-tight">
                 "Crescimento previsível sem depender apenas de iFood"
