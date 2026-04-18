@@ -21,7 +21,7 @@ import {
 import { generateReinforcementText } from "@/ai/flows/generate-reinforcement-text";
 import { Skeleton } from '@/components/ui/skeleton';
 
-const WHATSAPP_NUMBER = "5511999999999"; // Substitua pelo número real
+const WHATSAPP_NUMBER = "5511999999999"; 
 const WHATSAPP_MESSAGE = "Quero receber minha análise da pizzaria e entender como aumentar meus pedidos no delivery.";
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
@@ -37,7 +37,7 @@ async function AIGeneratedText() {
 
   return (
     <div className="bg-primary/10 p-4 rounded-xl border border-primary/20 mt-4">
-      <p className="text-sm font-bold text-accent italic">
+      <p className="text-sm font-bold text-primary italic">
         " {reinforcementText} "
       </p>
     </div>
@@ -47,8 +47,8 @@ async function AIGeneratedText() {
 function AIGeneratedTextFallback() {
   return (
     <div className="space-y-2 w-full mt-4">
-      <Skeleton className="h-4 w-full" />
-      <Skeleton className="h-4 w-3/4 mx-auto" />
+      <Skeleton className="h-4 w-full bg-white/5" />
+      <Skeleton className="h-4 w-3/4 mx-auto bg-white/5" />
     </div>
   )
 }
@@ -56,8 +56,8 @@ function AIGeneratedTextFallback() {
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen w-full bg-background pb-12">
-      {/* Header com Logo */}
-      <header className="flex justify-center items-center p-6 sm:p-8">
+      {/* Header com Logo - Dimensões Padrão: 300x75 */}
+      <header className="flex justify-center items-center p-8 sm:p-12">
         <Image 
           src="https://i.imgur.com/UBxesF1.png" 
           alt="Logo Gold Pizzarias" 
@@ -67,17 +67,17 @@ export default function Home() {
         />
       </header>
 
-      <main className="flex flex-col items-center px-4 max-w-4xl mx-auto space-y-8">
+      <main className="flex flex-col items-center px-4 max-w-4xl mx-auto space-y-10">
         
         {/* Card Principal (Acima da dobra) */}
-        <Card className="w-full shadow-2xl border-none rounded-3xl overflow-hidden bg-white">
-          <CardHeader className="text-center p-8 pb-4 space-y-4">
+        <Card className="w-full shadow-[0_0_40px_rgba(255,215,0,0.1)] border-primary/20 rounded-[2.5rem] overflow-hidden bg-card">
+          <CardHeader className="text-center p-10 pb-4 space-y-4">
             <div className="flex justify-center">
-              <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center animate-bounce">
-                <CheckCircle2 className="h-10 w-10 text-green-600" />
+              <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center animate-pulse">
+                <CheckCircle2 className="h-12 w-12 text-primary" />
               </div>
             </div>
-            <CardTitle className="text-3xl sm:text-4xl font-extrabold text-foreground leading-tight">
+            <CardTitle className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
               ✅ Sua análise da pizzaria foi liberada!
             </CardTitle>
             <CardDescription className="text-lg sm:text-xl font-medium text-muted-foreground">
@@ -85,33 +85,33 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
           
-          <CardContent className="p-8 pt-0 space-y-6">
-            <Button asChild size="lg" className="w-full h-20 text-xl font-bold rounded-2xl bg-green-600 hover:bg-green-700 text-white shadow-lg transition-all hover:scale-[1.02] active:scale-95">
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-2 h-8 w-8" />
+          <CardContent className="p-10 pt-0 space-y-6">
+            <Button asChild size="lg" className="w-full h-20 text-xl font-bold rounded-2xl bg-[#25D366] hover:bg-[#1eb956] text-white shadow-lg transition-all hover:scale-[1.02] active:scale-95 border-none">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                <MessageCircle className="mr-3 h-8 w-8" />
                 Confirmar minha análise no WhatsApp
               </a>
             </Button>
             <p className="text-center text-sm font-medium text-muted-foreground flex items-center justify-center gap-2">
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 text-primary" />
               Clique no botão acima e envie a mensagem automática para garantir sua vaga.
             </p>
           </CardContent>
         </Card>
 
         {/* Seção: Reforço de Valor */}
-        <section className="w-full grid gap-6 sm:grid-cols-2">
-          <Card className="p-6 rounded-3xl border-none shadow-md">
-            <h3 className="text-xl font-bold text-accent mb-4">Em poucos minutos, você vai descobrir:</h3>
-            <ul className="space-y-3">
+        <section className="w-full grid gap-8 sm:grid-cols-2">
+          <Card className="p-8 rounded-[2rem] border-white/5 bg-white/5 shadow-inner">
+            <h3 className="text-xl font-bold text-primary mb-6">Em poucos minutos, você vai descobrir:</h3>
+            <ul className="space-y-4">
               {[
                 "Onde sua pizzaria está perdendo pedidos hoje",
                 "O que está travando seu crescimento no delivery",
                 "Como aumentar seus pedidos de forma consistente"
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm font-semibold">
-                  <div className="mt-1 bg-primary/20 p-1 rounded-full">
-                    <TrendingUp className="h-4 w-4 text-accent" />
+                <li key={i} className="flex items-start gap-4 text-sm font-semibold text-white/90">
+                  <div className="mt-1 bg-primary/20 p-1.5 rounded-full">
+                    <TrendingUp className="h-4 w-4 text-primary" />
                   </div>
                   {item}
                 </li>
@@ -123,62 +123,65 @@ export default function Home() {
           </Card>
 
           {/* Prova Social */}
-          <Card className="p-6 rounded-3xl border-none shadow-md bg-accent text-accent-foreground">
-            <h3 className="text-xl font-bold mb-4">📊 Pizzarias que aplicaram isso:</h3>
-            <div className="space-y-4">
-              <div className="bg-white/10 p-3 rounded-2xl">
-                <p className="text-2xl font-black">+500 pedidos</p>
-                <p className="text-xs uppercase tracking-wider opacity-80">em poucos dias</p>
+          <Card className="p-8 rounded-[2rem] border-none shadow-xl bg-primary text-black">
+            <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+              <TrendingUp className="h-6 w-6" />
+              Pizzarias que aplicaram isso:
+            </h3>
+            <div className="space-y-5">
+              <div className="bg-black/10 p-4 rounded-2xl border border-black/5">
+                <p className="text-3xl font-black">+500 pedidos</p>
+                <p className="text-xs uppercase tracking-widest font-bold opacity-80">em poucos dias</p>
               </div>
-              <div className="bg-white/10 p-3 rounded-2xl">
-                <p className="text-2xl font-black">+R$30 mil</p>
-                <p className="text-xs uppercase tracking-wider opacity-80">faturados no delivery</p>
+              <div className="bg-black/10 p-4 rounded-2xl border border-black/5">
+                <p className="text-3xl font-black">+R$30 mil</p>
+                <p className="text-xs uppercase tracking-widest font-bold opacity-80">faturados no delivery</p>
               </div>
-              <p className="text-sm font-medium italic opacity-90">
-                "Crescimento previsível sem depender só de iFood"
+              <p className="text-sm font-bold italic leading-tight">
+                "Crescimento previsível sem depender apenas de iFood"
               </p>
             </div>
           </Card>
         </section>
 
         {/* Pré-frame (Importante) */}
-        <div className="w-full bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-3xl">
-          <div className="flex items-center gap-2 mb-2">
-            <AlertTriangle className="h-6 w-6 text-yellow-600" />
-            <h3 className="text-xl font-black text-yellow-900 uppercase">⚠️ Importante:</h3>
+        <div className="w-full bg-white/5 border-l-4 border-primary p-8 rounded-r-3xl">
+          <div className="flex items-center gap-3 mb-3">
+            <AlertTriangle className="h-7 w-7 text-primary" />
+            <h3 className="text-xl font-black text-white uppercase tracking-tight">⚠️ Importante:</h3>
           </div>
-          <p className="text-yellow-800 font-medium leading-relaxed">
+          <p className="text-muted-foreground font-medium leading-relaxed text-lg">
             Essa não é uma conversa comum. É uma análise direta da sua pizzaria, onde você já sai com clareza do que precisa ajustar para vender mais.
           </p>
         </div>
 
         {/* Instrução Simples */}
-        <section className="w-full space-y-4">
-          <h3 className="text-center text-xl font-bold text-accent">Para aproveitar melhor:</h3>
+        <section className="w-full space-y-6">
+          <h3 className="text-center text-xl font-bold text-primary">Para aproveitar melhor:</h3>
           <div className="grid sm:grid-cols-2 gap-4">
-            <div className="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm">
-              <div className="bg-primary p-2 rounded-xl">
-                <Instagram className="h-6 w-6 text-accent" />
+            <div className="flex items-center gap-4 bg-white/5 p-5 rounded-2xl border border-white/5 shadow-sm">
+              <div className="bg-primary/20 p-3 rounded-xl">
+                <Instagram className="h-6 w-6 text-primary" />
               </div>
-              <p className="text-sm font-bold">Esteja com acesso ao seu Instagram ou pedidos</p>
+              <p className="text-sm font-bold text-white">Esteja com acesso ao seu Instagram ou pedidos</p>
             </div>
-            <div className="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm">
-              <div className="bg-primary p-2 rounded-xl">
-                <Clock className="h-6 w-6 text-accent" />
+            <div className="flex items-center gap-4 bg-white/5 p-5 rounded-2xl border border-white/5 shadow-sm">
+              <div className="bg-primary/20 p-3 rounded-xl">
+                <Clock className="h-6 w-6 text-primary" />
               </div>
-              <p className="text-sm font-bold">Separe alguns minutos sem distrações</p>
+              <p className="text-sm font-bold text-white">Separe alguns minutos sem distrações</p>
             </div>
           </div>
         </section>
 
         {/* CTA Final */}
-        <div className="w-full pt-8">
-          <Button asChild size="lg" className="w-full h-16 text-lg font-black rounded-2xl bg-accent hover:bg-accent/90 text-accent-foreground shadow-xl transition-all">
+        <div className="w-full pt-10 text-center">
+          <Button asChild size="lg" className="w-full h-18 text-lg font-black rounded-2xl bg-primary hover:bg-primary/90 text-black shadow-[0_10px_30px_rgba(255,215,0,0.2)] transition-all">
             <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
               Quero garantir minha análise no WhatsApp
             </a>
           </Button>
-          <p className="text-center text-xs text-muted-foreground mt-4 font-medium uppercase tracking-widest">
+          <p className="text-xs text-muted-foreground mt-6 font-medium uppercase tracking-[0.2em]">
             Gold Pizzarias © 2024
           </p>
         </div>
