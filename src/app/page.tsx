@@ -125,7 +125,7 @@ export default function Home() {
             </Suspense>
           </Card>
 
-          {/* Prova Social - Atualizada */}
+          {/* Prova Social */}
           <Card className="p-8 rounded-[2rem] border-none shadow-xl bg-primary text-black">
             <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
               <TrendingUp className="h-6 w-6" />
