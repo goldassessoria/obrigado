@@ -1,3 +1,4 @@
+
 # Gold Pizzarias - Página de Obrigado
 
 Este projeto é a página de confirmação (Obrigado) da Gold Pizzarias, otimizada para conversão no WhatsApp e com rastreamento completo (Meta Pixel e Google Ads).

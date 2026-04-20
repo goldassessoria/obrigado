@@ -21,12 +21,12 @@ import {
 import { generateReinforcementText } from "@/ai/flows/generate-reinforcement-text";
 import { Skeleton } from '@/components/ui/skeleton';
 
-const WHATSAPP_LINK = "https://w.app/goldassessoria";
+const WHATSAPP_BASE_NUMBER = "5511951683569";
 
-async function AIGeneratedText() {
+async function AIGeneratedText({ name, pizzeria }: { name: string, pizzeria: string }) {
   let reinforcementText = "";
   try {
-    const userBehaviorData = "Lead de pizzaria interessado em aumentar pedidos e faturamento via WhatsApp.";
+    const userBehaviorData = `O dono da pizzaria ${pizzeria}, chamado ${name}, quer aumentar pedidos via WhatsApp.`;
     const result = await generateReinforcementText({ userBehaviorData });
     reinforcementText = result.reinforcementText;
   } catch (error) {
@@ -51,12 +51,21 @@ function AIGeneratedTextFallback() {
   )
 }
 
-export default function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ name?: string; pizzeria?: string }>;
+}) {
+  const { name = "Empreendedor", pizzeria = "Sua Pizzaria" } = await searchParams;
+  
+  const message = `Olá, meu nome é ${name} da pizzaria ${pizzeria}. Preenchi o formulário e quero confirmar minha análise!`;
+  const whatsappLink = `https://wa.me/${WHATSAPP_BASE_NUMBER}?text=${encodeURIComponent(message)}`;
+
   return (
     <div className="flex flex-col min-h-screen w-full bg-background pb-12">
-      {/* Header com Logo - Responsivo */}
+      {/* Header com Logo - Responsivo Mobile-First */}
       <header className="flex justify-center items-center p-6 sm:p-12">
-        <div className="relative w-[220px] sm:w-[300px] h-[55px] sm:h-[75px]">
+        <div className="relative w-[180px] h-[45px] sm:w-[300px] sm:h-[75px]">
           <Image 
             src="https://i.imgur.com/UBxesF1.png" 
             alt="Logo Gold Pizzarias" 
@@ -67,48 +76,48 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="flex flex-col items-center px-4 max-w-4xl mx-auto space-y-6 sm:space-y-10">
+      <main className="flex flex-col items-center px-4 w-full max-w-4xl mx-auto space-y-6 sm:space-y-10">
         
-        {/* Card Principal - Responsivo */}
+        {/* Card Principal */}
         <Card className="w-full shadow-[0_0_40px_rgba(255,215,0,0.1)] border-primary/20 rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden bg-card">
-          <CardHeader className="text-center p-6 sm:p-10 pb-4 space-y-4">
+          <CardHeader className="text-center p-5 sm:p-10 pb-4 space-y-4">
             <div className="flex justify-center">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary/10 flex items-center justify-center animate-pulse">
-                <CheckCircle2 className="h-10 w-10 sm:h-12 sm:w-12 text-primary" />
+              <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-primary/10 flex items-center justify-center animate-pulse">
+                <CheckCircle2 className="h-8 w-8 sm:h-12 sm:w-12 text-primary" />
               </div>
             </div>
-            <CardTitle className="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+            <CardTitle className="text-xl sm:text-4xl font-extrabold text-white leading-tight">
               ✅ Sua análise da pizzaria foi liberada!
             </CardTitle>
-            <CardDescription className="text-base sm:text-xl font-medium text-muted-foreground">
+            <CardDescription className="text-sm sm:text-xl font-medium text-muted-foreground">
               Agora falta só um passo para receber seu diagnóstico completo:
             </CardDescription>
           </CardHeader>
           
-          <CardContent className="p-6 sm:p-10 pt-0 space-y-6">
-            <Button asChild size="lg" className="w-full h-16 sm:h-20 text-lg sm:text-xl font-bold rounded-xl sm:rounded-2xl bg-[#25D366] hover:bg-[#1eb956] text-black shadow-lg transition-all hover:scale-[1.02] active:scale-95 border-none">
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
-                <MessageCircle className="mr-2 sm:mr-3 h-6 w-6 sm:h-8 sm:w-8" />
+          <CardContent className="p-5 sm:p-10 pt-0 space-y-6">
+            <Button asChild size="lg" className="w-full h-14 sm:h-20 text-base sm:text-xl font-bold rounded-xl sm:rounded-2xl bg-[#25D366] hover:bg-[#1eb956] text-black shadow-lg transition-all hover:scale-[1.01] active:scale-95 border-none">
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                <MessageCircle className="mr-2 h-5 w-5 sm:h-8 sm:w-8" />
                 Confirmar no WhatsApp
               </a>
             </Button>
-            <p className="text-center text-xs sm:text-sm font-medium text-muted-foreground flex items-center justify-center gap-2">
-              <ArrowRight className="h-4 w-4 text-primary shrink-0" />
+            <p className="text-center text-[10px] sm:text-sm font-medium text-muted-foreground flex items-center justify-center gap-2">
+              <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 text-primary shrink-0" />
               Clique no botão e envie a mensagem automática.
             </p>
           </CardContent>
         </Card>
 
-        {/* Seção: Reforço de Valor e Prova Social */}
-        <section className="w-full grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2">
+        {/* Seção: Reforço de Valor - Grid Mobile-First */}
+        <section className="w-full grid gap-4 sm:gap-8 grid-cols-1 md:grid-cols-2">
           {/* O que vai descobrir */}
-          <Card className="p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] border-white/5 bg-white/5 shadow-inner">
-            <h3 className="text-lg sm:text-xl font-bold text-primary mb-4 sm:mb-6">Em poucos minutos, você vai descobrir:</h3>
-            <ul className="space-y-3 sm:space-y-4">
+          <Card className="p-5 sm:p-8 rounded-[1.25rem] sm:rounded-[2rem] border-white/5 bg-white/5 shadow-inner">
+            <h3 className="text-base sm:text-xl font-bold text-primary mb-4 sm:mb-6">Em poucos minutos, você vai descobrir:</h3>
+            <ul className="space-y-3">
               {[
-                "Onde sua pizzaria está perdendo pedidos hoje",
-                "O que está travando seu crescimento no delivery",
-                "Como aumentar seus pedidos de forma consistente"
+                "Onde sua pizzaria está perdendo pedidos",
+                "O que está travando seu crescimento",
+                "Como aumentar pedidos de forma consistente"
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-xs sm:text-sm font-semibold text-white/90">
                   <div className="mt-0.5 bg-primary/20 p-1 rounded-full shrink-0">
@@ -119,73 +128,73 @@ export default function Home() {
               ))}
             </ul>
             <Suspense fallback={<AIGeneratedTextFallback />}>
-              <AIGeneratedText />
+              <AIGeneratedText name={name} pizzeria={pizzeria} />
             </Suspense>
           </Card>
 
-          {/* Prova Social */}
-          <Card className="p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] border-none shadow-xl bg-primary text-black flex flex-col justify-between">
+          {/* Resultados Qualitativos */}
+          <Card className="p-5 sm:p-8 rounded-[1.25rem] sm:rounded-[2rem] border-none shadow-xl bg-primary text-black flex flex-col justify-between">
             <div>
-              <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 flex items-center gap-2">
+              <h3 className="text-base sm:text-xl font-bold mb-4 sm:mb-6 flex items-center gap-2">
                 <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6" />
-                Casos Reais:
+                Resultados Reais:
               </h3>
-              <div className="space-y-3 sm:space-y-4">
-                <div className="bg-black/10 p-4 rounded-xl border border-black/5">
+              <div className="space-y-3">
+                <div className="bg-black/10 p-3 sm:p-4 rounded-xl border border-black/5">
                   <p className="text-lg sm:text-2xl font-black leading-tight">Vendas Sem Taxas</p>
-                  <p className="text-[10px] sm:text-xs uppercase tracking-widest font-bold opacity-80 mt-1">CRESCIMENTO EM 70% NO CARDÁPIO PRÓPRIO</p>
+                  <p className="text-[9px] sm:text-xs uppercase tracking-widest font-bold opacity-80 mt-1">CRESCIMENTO NO CARDÁPIO PRÓPRIO</p>
                 </div>
-                <div className="bg-black/10 p-4 rounded-xl border border-black/5">
+                <div className="bg-black/10 p-3 sm:p-4 rounded-xl border border-black/5">
                   <p className="text-lg sm:text-2xl font-black leading-tight">Novos clientes</p>
-                  <p className="text-[10px] sm:text-xs uppercase tracking-widest font-bold opacity-80 mt-1">AUMENTO NA BASE DE CLIENTES</p>
+                  <p className="text-[9px] sm:text-xs uppercase tracking-widest font-bold opacity-80 mt-1">AUMENTO NA BASE E LUCRO REAL</p>
                 </div>
               </div>
             </div>
-            <p className="text-xs sm:text-sm font-bold italic leading-tight mt-4">
-              "Crescimento previsível sem depender apenas de iFood"
+            <p className="text-[10px] sm:text-xs font-bold italic leading-tight mt-4 opacity-80 text-right">
+              "Crescimento previsível fora do iFood"
             </p>
           </Card>
         </section>
 
-        {/* Pré-frame - Responsivo */}
-        <div className="w-full bg-white/5 border-l-4 border-primary p-6 sm:p-8 rounded-r-2xl sm:rounded-r-3xl">
-          <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-            <AlertTriangle className="h-6 w-6 sm:h-7 sm:w-7 text-primary" />
-            <h3 className="text-lg sm:text-xl font-black text-white uppercase tracking-tight">⚠️ Importante:</h3>
+        {/* Importante / Alerta */}
+        <div className="w-full bg-white/5 border-l-4 border-primary p-5 sm:p-8 rounded-r-xl sm:rounded-r-3xl">
+          <div className="flex items-center gap-2 mb-2">
+            <AlertTriangle className="h-5 w-5 sm:h-7 sm:w-7 text-primary" />
+            <h3 className="text-base sm:text-xl font-black text-white uppercase">⚠️ Importante:</h3>
           </div>
           <p className="text-muted-foreground font-medium leading-relaxed text-sm sm:text-lg">
-            Essa não é uma conversa comum. É uma análise direta da sua pizzaria para você vender mais.
+            Essa é uma análise estratégica da sua pizzaria para você vender mais.
           </p>
         </div>
 
-        {/* Instrução Simples */}
-        <section className="w-full space-y-4 sm:space-y-6">
-          <h3 className="text-center text-lg sm:text-xl font-bold text-primary">Para aproveitar melhor:</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="flex items-center gap-3 sm:gap-4 bg-white/5 p-4 rounded-xl border border-white/5 shadow-sm">
-              <div className="bg-primary/20 p-2 sm:p-3 rounded-lg">
-                <BarChart2 className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+        {/* Instruções Finais */}
+        <section className="w-full space-y-4">
+          <h3 className="text-center text-base sm:text-xl font-bold text-primary">Para aproveitar melhor:</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/5">
+              <div className="bg-primary/20 p-2 rounded-lg">
+                <BarChart2 className="h-5 w-5 text-primary" />
               </div>
-              <p className="text-xs sm:text-sm font-bold text-white leading-snug">Tenha acesso a sua quantidade de pedidos mensais</p>
+              <p className="text-xs sm:text-sm font-bold text-white">Sua quantidade de pedidos mensais em mãos</p>
             </div>
-            <div className="flex items-center gap-3 sm:gap-4 bg-white/5 p-4 rounded-xl border border-white/5 shadow-sm">
-              <div className="bg-primary/20 p-2 sm:p-3 rounded-lg">
-                <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+            <div className="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/5">
+              <div className="bg-primary/20 p-2 rounded-lg">
+                <Clock className="h-5 w-5 text-primary" />
               </div>
-              <p className="text-xs sm:text-sm font-bold text-white leading-snug">Separe alguns minutos sem distrações</p>
+              <p className="text-xs sm:text-sm font-bold text-white">Separe alguns minutos sem distrações</p>
             </div>
           </div>
         </section>
 
         {/* CTA Final */}
-        <div className="w-full pt-6 sm:pt-10 text-center">
-          <Button asChild size="lg" className="w-full h-16 sm:h-20 text-lg sm:text-xl font-black rounded-xl sm:rounded-2xl bg-primary hover:bg-primary/90 text-black shadow-[0_10px_30px_rgba(255,215,0,0.2)] transition-all">
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
-              <Calculator className="mr-2 sm:mr-3 h-6 w-6 sm:h-8 sm:w-8" />
+        <div className="w-full pt-4 sm:pt-10 text-center">
+          <Button asChild size="lg" className="w-full h-14 sm:h-20 text-base sm:text-xl font-black rounded-xl sm:rounded-2xl bg-primary hover:bg-primary/90 text-black shadow-[0_10px_30px_rgba(255,215,0,0.2)]">
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+              <Calculator className="mr-2 h-5 w-5 sm:h-8 sm:w-8" />
               Garantir minha análise agora
             </a>
           </Button>
-          <p className="text-[10px] text-muted-foreground mt-6 font-medium uppercase tracking-[0.2em]">
+          <p className="text-[9px] text-muted-foreground mt-8 font-medium uppercase tracking-[0.2em]">
             Gold Pizzarias © 2026
           </p>
         </div>
