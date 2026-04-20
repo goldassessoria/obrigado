@@ -58,7 +58,7 @@ export default async function Home({
 }) {
   const { name = "Empreendedor", pizzeria = "Sua Pizzaria" } = await searchParams;
   
-  const message = `Olá, meu nome é ${name} da pizzaria ${pizzeria}. Preenchi o formulário e quero confirmar minha análise!`;
+  const message = `Olá, meu nome é ${name} da pizzaria ${pizzeria}. Quero confirmar minha análise!`;
   const whatsappLink = `https://wa.me/${WHATSAPP_BASE_NUMBER}?text=${encodeURIComponent(message)}`;
 
   return (
