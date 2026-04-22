@@ -4,8 +4,8 @@ import { Toaster } from '@/components/ui/toaster';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'Gold Obrigado',
-  description: 'Página de confirmação',
+  title: 'Análise Liberada | Gold Pizzarias',
+  description: 'Confirme sua análise no WhatsApp para receber seu diagnóstico completo.',
 };
 
 export default function RootLayout({
@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -31,6 +31,7 @@ export default function RootLayout({
             'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '1390088832135868');
             fbq('track', 'PageView');
+            fbq('track', 'Lead');
           `}
         </Script>
         <noscript>
