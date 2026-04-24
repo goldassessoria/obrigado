@@ -74,7 +74,7 @@ export default async function Home({
         <section className="w-full grid gap-4 sm:gap-8 grid-cols-1 md:grid-cols-2">
           {/* O que vai descobrir */}
           <Card className="p-5 sm:p-8 rounded-[1.25rem] sm:rounded-[2rem] border-white/5 bg-white/5 shadow-inner">
-            <h3 className="text-base sm:text-xl font-bold text-primary mb-4 sm:mb-6">Em poucos minutos, você vai descobrir:</h3>
+            <h3 className="text-base sm:text-xl font-bold text-primary mb-4 sm:mb-6">Você vai descobrir:</h3>
             <ul className="space-y-3">
               {[
                 "Onde sua pizzaria está perdendo pedidos",
@@ -131,24 +131,6 @@ export default async function Home({
           </p>
         </div>
 
-        {/* Instruções Finais */}
-        <section className="w-full space-y-4">
-          <h3 className="text-center text-base sm:text-xl font-bold text-primary">Para aproveitar melhor:</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div className="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/5">
-              <div className="bg-primary/20 p-2 rounded-lg">
-                <BarChart2 className="h-5 w-5 text-primary" />
-              </div>
-              <p className="text-xs sm:text-sm font-bold text-white">Sua quantidade de pedidos mensais em mãos</p>
-            </div>
-            <div className="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/5">
-              <div className="bg-primary/20 p-2 rounded-lg">
-                <Clock className="h-5 w-5 text-primary" />
-              </div>
-              <p className="text-xs sm:text-sm font-bold text-white">Separe alguns minutos sem distrações</p>
-            </div>
-          </div>
-        </section>
 
         {/* CTA Final */}
         <div className="w-full pt-4 sm:pt-10 text-center">
