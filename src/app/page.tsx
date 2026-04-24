@@ -57,7 +57,7 @@ export default async function Home({
               ✅ Sua análise da pizzaria foi liberada!
             </CardTitle>
             <CardDescription className="text-sm sm:text-xl font-medium text-muted-foreground">
-              Preencha as informações abaixo para receber uma análise completa da sua PIZZARIA e descobrir como aumentar suas vendas.
+              Agora falta só um passo para receber seu diagnóstico completo:
             </CardDescription>
           </CardHeader>
           
